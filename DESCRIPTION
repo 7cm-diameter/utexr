@@ -1,0 +1,14 @@
+Package: utexr
+Type: Package
+Title: Utilities for data pre-processing
+Version: 0.0.1
+Date: 2024-02-22
+Author: Kota Yamada
+Maintainer: Kota Yamada <yourfault@somewhere.net>
+Description: More about what it does (maybe more than one line)
+License: MIT + file LICENSE
+Imports: 
+    stringr
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
+Encoding: UTF-8
