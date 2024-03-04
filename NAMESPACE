@@ -2,5 +2,9 @@
 
 export(add_metadata_to_df)
 export(align_with)
+export(bining)
+export(dict)
 export(get_metedata_from_filename)
+export(read.and.combine)
+export(read.csv.with.colname)
 importFrom(stringr,str_split)

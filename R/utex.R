@@ -46,3 +46,52 @@ add_metadata_to_df <- function(data, filename) {
                        date = rep(metadata["date"], n))
   return(cbind(metadf, data))
 }
+
+#' @export
+dict <- function(a, b) {
+  na = length(a)
+  nb = length(b)
+
+  nua = length(unique(a))
+  nub = length(unique(b))
+
+  if(!(na == nua && nb == nub)) {
+    stop("Arguments, a and b, must be a vector of unique elements")
+  }
+
+  if(na != nb) {
+    stop("a and b must be the same length")
+  }
+
+  inner <- function(x) {
+    i <- which(a == x)
+    if (length(i) == 0) {
+      return(NA)
+    }
+    return(b[i])
+  }
+}
+
+#' @export
+bining <- function(x, binwidth) {
+  floor(x / binwidth) * binwidth
+}
+
+#' @export
+read.csv.with.colname <- function(path, colnames) {
+  d <- read.csv(path, header = FALSE)
+  names(d) <- colnames
+  return(d)
+}
+
+#' @export
+read.and.combine <- function(path, newdata) {
+  if(file.exists(path)) {
+    olddata <- read.csv(path)
+    data <- rbind(olddata, newdata)
+    write.csv(data, path, row.names = FALSE)
+  } else {
+    data <- newdata
+  }
+  return(data)
+}
